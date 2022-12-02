@@ -1,0 +1,37 @@
+<!-- create bootstrap table that presents all products and above in the page there is app product button -->
+
+<div class="container mt-4" >
+    <!-- create the button for adding new product at the top right of the table -->
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary float-end" (click)="addNewProduct()">Add New Product</button>
+      </div>
+    </div>
+
+    <!-- create the table for products -->
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{product.name}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+              <td>
+                <button class="btn btn-primary" (click)="editProduct(product)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteProduct(product)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

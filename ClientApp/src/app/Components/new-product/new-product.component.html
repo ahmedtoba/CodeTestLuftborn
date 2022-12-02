@@ -1,0 +1,28 @@
+<!--  create form for the product control using reactive form FormGroup productForm and using bootstrap forms -->
+
+<div class="container" style="margin-top: 20px;">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label text-primary">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <span class="text-danger" *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">Name is required</span>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label text-primary">Description</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label text-primary">Price</label>
+      <input type="number" class="form-control" id="price" formControlName="price">
+      <span class="text-danger" *ngIf="productForm.get('price')?.hasError('min')">Price must be greater than 0</span>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label text-primary">Image Url</label>
+      <input type="text" class="form-control" id="image" formControlName="image">
+      <span class="text-danger" *ngIf="productForm.get('image')?.hasError('required')">Image is required</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

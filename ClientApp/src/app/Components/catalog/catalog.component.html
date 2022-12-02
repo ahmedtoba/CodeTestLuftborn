@@ -1,0 +1,9 @@
+<!-- create template using bootstrap that display all products -->
+<!-- use ngFor to loop through all products and put child component app-product for each loop-->
+
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let product of products">
+      <app-product [productData]="product"></app-product>
+    </div>
+  </div> 
